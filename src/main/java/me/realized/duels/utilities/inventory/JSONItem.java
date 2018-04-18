@@ -95,26 +95,6 @@ public class JSONItem {
                 }
 
                 this.itemData = spawnEgg.getType().name() + "-";
-            } else if (material.equals("TIPPED_ARROW")) {
-                PotionMeta meta = (PotionMeta) item.getItemMeta();
-                PotionData potionData = meta.getBasePotionData();
-
-                if (potionData.getType().getEffectType() == null) {
-                    return;
-                }
-
-                StringBuilder data = new StringBuilder();
-                data.append(potionData.getType().name()).append("-");
-
-                if (potionData.isExtended()) {
-                    data.append("extended-");
-                }
-
-                if (potionData.isUpgraded()) {
-                    data.append("upgraded-");
-                }
-
-                this.itemData = data.toString();
             }
         }
     }
@@ -202,11 +182,6 @@ public class JSONItem {
             } else if (material.equals("MONSTER_EGG")) {
                 SpawnEggs spawnEgg1_9 = new SpawnEggs(EntityType.valueOf(itemData.get(0)));
                 item = spawnEgg1_9.toItemStack(amount);
-            } else if (material.equals("TIPPED_ARROW")) {
-                PotionMeta potionMeta = (PotionMeta) item.getItemMeta();
-                PotionData data = new PotionData(PotionType.valueOf(itemData.get(0)), itemData.contains("extended"), itemData.contains("upgraded"));
-                potionMeta.setBasePotionData(data);
-                item.setItemMeta(potionMeta);
             }
         }
 

@@ -20,11 +20,7 @@ public class SetitemCommand extends SubCommand {
     public void execute(Player sender, String[] args) {
         ItemStack held;
 
-        if (Helper.isPre1_9()) {
-            held = sender.getInventory().getItemInHand();
-        } else {
-            held = sender.getInventory().getItemInMainHand();
-        }
+        held = sender.getInventory().getItemInHand();
 
         if (held == null || held.getType() == Material.AIR) {
             Helper.pm(sender, "Errors.empty-hand", true);

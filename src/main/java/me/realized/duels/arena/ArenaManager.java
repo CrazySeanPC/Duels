@@ -459,11 +459,8 @@ public class ArenaManager implements Listener, Reloadable {
                 regen = true;
             }
         } else {
-            if (player.getInventory().getItemInMainHand().getType() == Material.MUSHROOM_SOUP) {
-                player.getInventory().setItemInMainHand(new ItemStack(Material.BOWL));
-                regen = true;
-            } else if (player.getInventory().getItemInOffHand().getType() == Material.MUSHROOM_SOUP) {
-                player.getInventory().setItemInOffHand(new ItemStack(Material.BOWL));
+            if (player.getInventory().getItemInHand().getType() == Material.MUSHROOM_SOUP) {
+                player.getInventory().setItemInHand(new ItemStack(Material.BOWL));
                 regen = true;
             }
         }

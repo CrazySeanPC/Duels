@@ -239,11 +239,7 @@ public class SpectatorManager implements Listener {
         Player base = event.getPlayer();
         ItemStack held;
 
-        if (Helper.isPre1_9()) {
-            held = base.getInventory().getItemInHand();
-        } else {
-            held = base.getInventory().getItemInMainHand();
-        }
+        held = base.getInventory().getItemInHand();
 
         if (held == null || held.getType() != Material.REDSTONE) {
             return;

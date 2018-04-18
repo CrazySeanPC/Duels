@@ -64,12 +64,6 @@ public class Potions {
 
         ItemStack item = new ItemStack(Material.POTION, amount);
 
-        if (splash) {
-            item.setType(Material.SPLASH_POTION);
-        } else if (linger) {
-            item.setType(Material.LINGERING_POTION);
-        }
-
         try {
             Object stack = asNMSCopy.invoke(null, item);
             Object tagCompound = itemStack.getMethod("getTag").invoke(stack);
@@ -292,7 +286,7 @@ public class Potions {
                         return null;
                 }
 
-                return new Potions(type, strong, _long, item.getType().equals(Material.LINGERING_POTION), item.getType().equals(Material.SPLASH_POTION));
+                return new Potions(type, strong, _long, item.getType().equals(Material.POTION), item.getType().equals(Material.POTION));
             } else {
                 return null;
             }
